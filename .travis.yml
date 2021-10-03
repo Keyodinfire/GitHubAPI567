@@ -4,4 +4,4 @@ python:
 install:
   - pip install requests
 script:
-  - python -m unittest APIRequestsTest
+  - python -m unittest APIRequestsTest < testing.txt
