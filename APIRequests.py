@@ -1,5 +1,4 @@
 import requests
-import json
 
 def get_id():
     github_id = input("Please enter your GitHub User ID: ")
@@ -22,7 +21,9 @@ def display_repo():
     github_id = get_id()
     repo_lst = get_repo(github_id)
     commit_lst = []
+    github_lst = []
     for i in range(0, len(repo_lst)):
         commit_lst.append(get_commit(github_id, repo_lst[i]))
     for i in range(0,len(repo_lst)):
-        print('Repo: ' + repo_lst[i] + ' Number of Commits: ' + commit_lst[i])
+        github_lst.append('Repo: ' + repo_lst[i] + ' Number of Commits: ' + str(commit_lst[i]))
+    return github_lst
