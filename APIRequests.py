@@ -1,4 +1,5 @@
 import requests
+import json
 
 def get_id():
     github_id = input("Please enter your GitHub User ID: ")
@@ -6,7 +7,7 @@ def get_id():
 
 def get_repo(id):
     response = requests.get('https://api.github.com/users/' + id + '/repos')
-    json_obj = response.json()
+    json_obj = json.loads(response.text)
     repo_names =[]
     for i in range(0,len(json_obj)):
         repo_names.append(json_obj[i]['name'])
